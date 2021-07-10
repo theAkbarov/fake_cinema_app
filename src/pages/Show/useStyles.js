@@ -58,6 +58,7 @@ export const Button = styled.div`
 export const Text = styled.h1`
   color: white;
   margin: 1.3rem;
+  white-space: nowrap;
   mix-blend-mode: difference;
 `;
 export const Seasons = styled.div`
