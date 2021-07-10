@@ -1,0 +1,36 @@
+.ErrorPage{
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding:  10% 15% 0;
+    color: white;
+    justify-content: space-between;
+}
+.title{
+    font-family: 'brandon-grotesque';
+    font-family: 'Itim', cursive;
+    font-weight: 900;
+    color: white;
+
+    font-style: normal;
+    font-size: 51px;
+    letter-spacing: .29em;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+.text{
+    text-align: center;
+    color: white;
+    font-family: futura-pt;
+    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-size: 22px;
+    letter-spacing: 0em;
+    line-height: 1.7em;
+    text-transform: none;
+    white-space: pre-wrap;
+    // color: rgba(29, 29, 29, .7);
+}

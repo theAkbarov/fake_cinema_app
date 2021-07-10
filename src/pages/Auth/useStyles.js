@@ -65,3 +65,12 @@ export const AuthButton = styled.button`
   font-size: 0.875rem;
   font-weight: 600;
 `;
+export const Error = styled.div`
+  background: #dc3545 !important;
+  padding: 0.6rem;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  margin: 2rem 0;
+  width: 100%
+`;

@@ -50,6 +50,7 @@ export const Profile = styled.button`
   font-weight: 600;
   width: 40px;
   height: 40px;
+  position: relative;
   border-radius: 50%;
 `;
 export const Action = styled.div`
@@ -62,4 +63,35 @@ export const Search = styled.button`
   cursor: pointer;
   border: none;
   margin-right: 10px;
+`;
+export const Menu = styled.div`
+position: absolute;
+left: -15px;
+width: 170%;
+right: 0;
+border-radius: 4px;
+margin: auto;
+bottom: -80px;
+background: white;
+padding: .4rem;
+transform: translateY(-50px);
+opacity: 0;
+height: 0;
+transition: all ease 0.4s;
+overflow: hidden;
+&.opened{
+  transform: translateY(0px);
+opacity: 1;
+
+height: auto;
+}
+a,button{
+  display: block;
+  cursor: pointer;
+  margin: .3rem 0;
+  background: none;
+  border: none;
+  color: black;
+  font-weight: 6;
+}
 `;

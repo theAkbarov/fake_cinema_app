@@ -1,4 +1,4 @@
-import { Container, Flex } from "../../useStyles";
+import { Container } from "../../useStyles";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { request } from "../../services/api/request";
@@ -54,7 +54,7 @@ const Show = ({ match }) => {
           >
             <MovieInfo>
               <Button>
-                <img width="60" height="60" src={Play} />
+                <img width="60" height="60" alt="" src={Play} />
               </Button>
               <Text>{movie.data && movie.data.name}</Text>
               <h3 style={{ margin: "10px", color: "white" }}>
