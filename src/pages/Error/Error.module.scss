@@ -4,8 +4,10 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding:  10% 15% 0;
+    padding:  10% 5% 0;
     color: white;
+    box-sizing: border-box;
+    overflow: hidden;
     justify-content: space-between;
 }
 .title{
