@@ -7,22 +7,24 @@ import {
   HeaderInner,
   Profile,
   Login,
+  SearchButton,
   Action,
-  Search,
   Menu
 } from "./useStyles";
+import Search from '../../components/Search'
 import Logout from '../../components/Logout'
 import { AppbarDatas } from "../../db";
-import {  SearchIcon } from "../../assets/icons";
+import { SearchIcon } from "../../assets/icons";
 
 import LogoIcon from "../../assets/icons/logo.svg";
 import { useAuth } from "../../services/context/AuthContext";
 const Appbar = () => {
-  const {  currentUser } = useAuth()
-  
+  const { currentUser } = useAuth()
+
   const [active, setActive] = useState(false);
-  const searchHandler= () => {
-    
+  const [searchbar, setSearchbar] = useState(false);
+  const searchHandler = () => {
+    setSearchbar(!searchbar)
   }
 
   return (
@@ -30,7 +32,7 @@ const Appbar = () => {
       <Container>
         <HeaderInner>
           <Link to="/">
-            <img width="150px" src={LogoIcon} alt=""/>
+            <img width="150px" src={LogoIcon} alt="" />
           </Link>
 
           <Navbar>
@@ -41,9 +43,9 @@ const Appbar = () => {
             ))}
           </Navbar>
           <Action>
-            <Search onClick={searchHandler}>
+            <SearchButton onClick={searchHandler}>
               <SearchIcon />
-            </Search>
+            </SearchButton>
             {currentUser ? <Profile onClick={() => setActive(!active)}>
               {currentUser && currentUser.email.split("")[0].toUpperCase()}
               <Menu onBlur={() => setActive(false)} className={active ? "opened" : " "}>
@@ -51,12 +53,13 @@ const Appbar = () => {
                 <Link to="/profile">Account</Link>
                 <Link to="/profile/wishlist">Wishlist</Link>
                 <Link to="/profile/settings">Settings</Link>
-                <Logout/>
+                <Logout />
               </Menu>
             </Profile> : <Login to="/auth">Sign in</Login>}
           </Action>
         </HeaderInner>
       </Container>
+      <Search active={searchbar} setSearchbar={setSearchbar}/>
     </Header>
   );
 };

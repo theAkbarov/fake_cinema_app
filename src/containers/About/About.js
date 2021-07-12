@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Heading } from '../../pages/Home/useStyles'
 import { Flex } from '../../useStyles'
+import { Link } from 'react-router-dom'
 import { request } from '../../services/api/request'
 import { MoviesConfig} from '../../db'
 import Slider from 'react-slick'
@@ -12,11 +13,11 @@ import {
 const About = ({movie}) => {
     const [data, setData] = useState({})
     useEffect(() => {
-        request.get(`/shows/${movie.data.id}/images`)
-            .then(res => setData(res))
+        request.get(`/shows/${movie.data.id}/cast`)
+            .then(res => setData(res.data))
             .catch(err => console.log(err))
         }, [])
-        // console.log(data);
+        console.log(data);
     return (
         <AboutWrapper>
             <img
@@ -49,7 +50,14 @@ const About = ({movie}) => {
                 </CastGroup>
                 <Actors>
                     <Slider {...MoviesConfig}>
-                        
+                        {
+                            data.length < 0 && data.map(el=> (
+                                <Link to={`/cast/${el.person.id}`}>
+                                 <img src={el.person.image.original} alt="" />
+                                 <p>{el.person.name}</p>
+                                 </Link>
+                            ))
+                        }
                     </Slider>
                 </Actors>
             </Datas>

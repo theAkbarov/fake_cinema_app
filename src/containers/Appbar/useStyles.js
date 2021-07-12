@@ -58,7 +58,7 @@ export const Action = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export const Search = styled.button`
+export const SearchButton = styled.button`
   background: none;
   cursor: pointer;
   border: none;
@@ -81,11 +81,11 @@ export const Menu = styled.div`
   opacity: 0;
   transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s;
   overflow: hidden;
-  h3{
-        font-size: .875rem;
-        
+  h3 {
+    font-size: 0.875rem;
+
     font-weight: 600;
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
     padding: 1rem;
     border-bottom: 1px solid #272626;
   }
@@ -96,7 +96,6 @@ margin-bottom: 1rem;
 
   a,
   button {
-    
     white-space: nowrap;
     display: block;
     cursor: pointer;
@@ -106,25 +105,25 @@ margin-bottom: 1rem;
     margin: 0.3rem 0;
     text-align: start;
     color: white;
-        margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: color .3s;
-    padding: .5rem 1rem;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
   }
-  button{
-        width: 100%;
+  button {
+    width: 100%;
     -webkit-justify-content: center;
     justify-content: center;
     text-align: center;
-    font-size: .85rem;
-    padding: .5rem 1rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
     background-color: #ff2e2e;
     border-radius: 4px;
-    transition: color .3s,background-color .3s;
+    transition: color 0.3s, background-color 0.3s;
     display: flex;
     align-items: center;
-    img{
+    img {
       margin-right: 10px;
     }
   }

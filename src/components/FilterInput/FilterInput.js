@@ -1,6 +1,6 @@
 import { InputHolder, Label, FormControl } from "./useStyles";
 
-const FilterInput = ({ data }) => {
+const FilterInput = ({ data,onEdit }) => {
     let years = [];
     for (let i = 2000; i < 2021; i++) {
         years.push(i);
@@ -10,8 +10,9 @@ const FilterInput = ({ data }) => {
         <InputHolder>
             <Label>{data.label}</Label>
             <FormControl
-                onChange={(e) => console.log(e)}
+                onChange={(e) => onEdit(e)}
                 list={data.id}
+                name={data.id}
                 type="text"
                 placeholder={data.defaultValue}
             />
