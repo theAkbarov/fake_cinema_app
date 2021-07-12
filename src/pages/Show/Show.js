@@ -2,10 +2,10 @@ import { Container } from "../../useStyles";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { request } from "../../services/api/request";
-import About from '../../containers/About'
-import Movie from '../../components/Movie'
-import Images from '../../containers/Images'
-import Comments from '../../containers/Comments'
+import About from "../../containers/About";
+import Movie from "../../components/Movie";
+import Images from "../../containers/Images";
+import Comments from "../../containers/Comments";
 import {
   ShowWrapper,
   Banner,
@@ -13,19 +13,29 @@ import {
   Button,
   Text,
   Seasons,
-  Nav,
 } from "./useStyles";
-import { set_movie, set_seasons, set_images } from "../../redux/actions/movie_actions";
+import {
+  set_movie,
+  set_seasons,
+  set_images,
+  set_wishlist,
+} from "../../redux/actions/movie_actions";
 import { useDispatch, useSelector } from "react-redux";
 import { HeartIcon } from "../../assets/icons";
 import Play from "../../assets/icons/play-button-svgrepo-com.svg";
 import Slider from "react-slick";
-import { MoviesConfig } from "../../db";
-
+import { MoviesConfig, ShowsData } from "../../db";
+import Navbar from "../../components/Navbar/Navbar";
 const Show = ({ match }) => {
   const [active, setActive] = useState("about");
   const dispatch = useDispatch();
   const movie = useSelector((state) => state.allPayloads.movie);
+  // const wishlist = useSelector((state) => state.allPayloads.wishlist);
+  const [wishlist, setWishlist] = useState(
+    window.localStorage.length > 0
+      ? JSON.parse(window.localStorage.getItem("wishlist"))
+      : null,
+  );
   const seasons = useSelector((state) => state.allPayloads.seasons);
   const movies = useSelector((state) => state.allPayloads.movies);
   useEffect(() => {
@@ -42,6 +52,14 @@ const Show = ({ match }) => {
       .then((res) => dispatch(set_images(res)))
       .catch((err) => console.log("This is fucking error", err));
   }, [match.params.id]);
+
+  const wishlistHandler = (product) => {
+    const products = [...wishlist, product];
+    setWishlist(products);
+    window.localStorage.setItem("wishlist", JSON.stringify(products));
+    console.log(wishlist);
+    dispatch(set_wishlist(product))
+  };
   return (
     <ShowWrapper>
       {movie ? (
@@ -61,7 +79,10 @@ const Show = ({ match }) => {
                 {" "}
                 {movie.data.status}
               </h3>
-              <Button className="favourites">
+              <Button
+                onClick={() => wishlistHandler(movie.data)}
+                className="favourites"
+              >
                 <HeartIcon />
               </Button>
             </MovieInfo>
@@ -74,8 +95,9 @@ const Show = ({ match }) => {
                   seasons.data.map((el) => (
                     <>
                       <Link
+                        key={el.id}
                         style={{ margin: "8px 12px", display: "inline-block" }}
-                        to={`/shows/${el.id}`}
+                        to={`/show/${el.id}`}
                       >
                         <img
                           width="120"
@@ -98,44 +120,26 @@ const Show = ({ match }) => {
                   ))}
               </Slider>
             </Seasons>
-            <Nav>
-              <button
-                className={active === "about" ? "active" : " "}
-                onClick={() => setActive("about")}
-              >
-                About
-              </button>
-              <button
-                className={active === "comments" ? "active" : " "}
-                onClick={() => setActive("comments")}
-              >
-                Comments
-              </button>
-              <button
-                className={active === "images" ? "active" : " "}
-                onClick={() => setActive("images")}
-              >
-                Images
-              </button>
-            </Nav>
+            <Navbar data={ShowsData} setActive={setActive} active={active} />
             {active === "about" ? (
-              <About movie={movie}/>
+              <About movie={movie} />
             ) : active === "comments" ? (
-              <Comments movie={movie}/>
+              <Comments movie={movie} />
             ) : active === "images" ? (
               <Images />
             ) : (
               ""
             )}
-            <Text>
-              Similar
-            </Text>
+            <Text>Similar</Text>
 
             <Slider className="slide" {...MoviesConfig}>
-              {movies.data && movies.data.slice(10,20).map(el => (
-                <Movie title={el.name} img={el.image.original} id={el.id}/>
-              ))}
-              </Slider>
+              {movies.data &&
+                movies.data
+                  .slice(10, 20)
+                  .map((el) => (
+                    <Movie title={el.name} img={el.image.original} id={el.id} />
+                  ))}
+            </Slider>
           </Container>
         </>
       ) : (

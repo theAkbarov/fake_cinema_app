@@ -16,7 +16,7 @@ const About = ({movie}) => {
             .then(res => setData(res))
             .catch(err => console.log(err))
         }, [])
-        console.log(data);
+        // console.log(data);
     return (
         <AboutWrapper>
             <img

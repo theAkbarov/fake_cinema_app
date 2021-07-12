@@ -2,6 +2,7 @@ import { MovieCard, Image, Text, Button } from './useStyles.js'
 import Play from '../../assets/icons/play-button-svgrepo-com.svg'
 const Movie = ({ title, img, id }) => {
     return (
+        <>
         <MovieCard to={`/show/${id}`}>
             <Image >
                 <img src={img} alt={title} />
@@ -14,6 +15,10 @@ const Movie = ({ title, img, id }) => {
                 {title}
             </Text>
         </MovieCard>
+                <Button className="wishlist">
+                    add to wishlist
+                </Button>
+        </>
     )
 }
 

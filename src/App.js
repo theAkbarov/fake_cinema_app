@@ -9,8 +9,10 @@ import Error from './pages/Error';
 import PrivateRoute from './services/routes/PrivateRoute'
 import { AuthProvider } from './services/context/AuthContext';
 import Wishlist from './pages/Wishlist'
+import Account from './pages/Account'
 
 function App() {
+
   return (
 <AuthProvider>
       <div className="App">
@@ -18,6 +20,7 @@ function App() {
         <Switch>
           <Route path="/auth" component={Auth} />
           <PrivateRoute path="/wishlist" component={Wishlist} />
+          <PrivateRoute path="/profile" component={Account} />
           <Route path="/show/:id" component={Show} />
           <Route path="/" exact component={Home} />
           <Route path="*" component={Error} />

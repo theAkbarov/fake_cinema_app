@@ -22,15 +22,18 @@ export const Image = styled.div`
     width: 100%;
     transition: all ease 0.4s;
     object-fit: cover;
-    
   }
   &:hover {
     img {
       transform: scale(1.1);
     }
-    button{
-        opacity: 1;
+    button {
+      opacity: 1;
     }
+
+  }
+  &:hover + button {
+    opacity: 1
   }
 `;
 export const Text = styled.h3`
@@ -41,22 +44,32 @@ export const Text = styled.h3`
   color: white;
 `;
 export const Button = styled.button`
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
-z-index: 966;
-        opacity: 0;
-        cursor: pointer;
-        transition: all ease 0.45s;
-background: none;
-border-radius: 50%;
-border: none;
-img{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 966;
+  opacity: 0;
+  cursor: pointer;
+  transition: all ease 0.45s;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  &.wishlist{
+    width: 100%;
+    top: auto;
+    border-radius: 0;
+    padding: .7rem;
+    background: #d2c728;
+    color: black;
+    font-size: .8rem;
+    font-weight: 600;
+  }
+  img {
     object-fit: cover;
-width: 50px;
-height: 50px;
-}
+    width: 50px;
+    height: 50px;
+  }
 `;

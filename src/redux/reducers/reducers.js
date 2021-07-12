@@ -4,7 +4,8 @@ const initialState = {
     movies: [],
     movie: [],
     token: "",
-    search: []
+    search: [],
+    wishlist: [],
 }
 export const movie_reducer = (state = initialState, { type, payload }) => {
     switch (type) {
@@ -23,6 +24,11 @@ export const movie_reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 seasons: payload
+            };
+        case action_types.SET_WISHLIST:
+            return {
+                ...state,
+                wishlist: payload 
             };
         case action_types.SET_IMAGES:
             return {

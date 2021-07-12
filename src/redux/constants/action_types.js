@@ -4,5 +4,6 @@ export const action_types = {
     SET_TOKEN: "SET_TOKEN",
     SET_SEARCHED: "SET_SEARCHED",
     SET_SEASONS: "SET_SEASONS",
-    SET_IMAGES: "SET_IMAGES"
+    SET_IMAGES: "SET_IMAGES",
+    SET_WISHLIST: "SET_WISHLIST"
 }

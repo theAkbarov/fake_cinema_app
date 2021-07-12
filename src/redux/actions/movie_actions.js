@@ -25,3 +25,9 @@ export const set_images = (product) => {
         payload: product
     }
 }
+export const set_wishlist = (product) => {
+    return{
+        type: action_types.SET_WISHLIST,
+        payload: product
+    }
+}

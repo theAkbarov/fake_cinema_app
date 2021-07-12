@@ -30,7 +30,7 @@ const Home = () => {
           products.data
             .slice(10, 16)
             .map((el) => (
-              <Card image={el.image.original} title={el.name} id={el.id} />
+              <Card image={el.image.original} title={el.name} id={el.id} key={el.id} />
             ))}
       </Slider>
       <Container style={{ marginBottom: "3rem" }}>
@@ -42,7 +42,7 @@ const Home = () => {
             products.data
               .slice(0, 16)
               .map((el) => (
-                <Movie title={el.name} img={el.image.original} id={el.id} />
+                <Movie title={el.name} img={el.image.original} key={el.id} id={el.id} />
               ))}
         </Slider>
       </Container>
@@ -55,7 +55,7 @@ const Home = () => {
             products.data
               .slice(16, 32)
               .map((el) => (
-                <Movie title={el.name} img={el.image.original} id={el.id} />
+                <Movie title={el.name} img={el.image.original} key={el.id}  id={el.id} />
               ))}
         </Slider>
       </Container>

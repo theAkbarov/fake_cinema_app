@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container } from "../../useStyles";
 import {
   Header,
@@ -11,30 +11,20 @@ import {
   Search,
   Menu
 } from "./useStyles";
+import Logout from '../../components/Logout'
 import { AppbarDatas } from "../../db";
-import { SearchIcon } from "../../assets/icons";
+import {  SearchIcon } from "../../assets/icons";
 
 import LogoIcon from "../../assets/icons/logo.svg";
 import { useAuth } from "../../services/context/AuthContext";
 const Appbar = () => {
-  const {  currentUser,logout } = useAuth()
+  const {  currentUser } = useAuth()
   
-  const history = useHistory()
   const [active, setActive] = useState(false);
-  const [error, setError] = useState("");
   const searchHandler= () => {
     
   }
-  async function logOutHandler() {
-    setError("")
-    try {
-      await logout()
-      history.push('/auth')
-    } catch {
-      setError("Failed to log out!")
-    alert(error)
-    }
-  }
+
   return (
     <Header>
       <Container>
@@ -56,10 +46,12 @@ const Appbar = () => {
             </Search>
             {currentUser ? <Profile onClick={() => setActive(!active)}>
               {currentUser && currentUser.email.split("")[0].toUpperCase()}
-              <Menu className={active ? "opened" : " "}>
-                <Link to="/wishlist">Wishlist</Link>
-                <Link to="/settings">Settings</Link>
-                <button onClick={logOutHandler}>Log out</button>
+              <Menu onBlur={() => setActive(!active)} className={active ? "opened" : " "}>
+                <h3>{currentUser && currentUser.email}</h3>
+                <Link to="/profile">Account</Link>
+                <Link to="/profile/wishlist">Wishlist</Link>
+                <Link to="/profile/settings">Settings</Link>
+                <Logout/>
               </Menu>
             </Profile> : <Login to="/auth">Sign in</Login>}
           </Action>

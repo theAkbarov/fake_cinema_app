@@ -65,33 +65,67 @@ export const Search = styled.button`
   margin-right: 10px;
 `;
 export const Menu = styled.div`
-position: absolute;
-left: -15px;
-width: 170%;
-right: 0;
-border-radius: 4px;
-margin: auto;
-bottom: -80px;
-background: white;
-padding: .4rem;
-transform: translateY(-50px);
-opacity: 0;
-height: 0;
-transition: all ease 0.4s;
-overflow: hidden;
-&.opened{
-  transform: translateY(0px);
-opacity: 1;
+  margin: auto;
+  padding: 0.4rem;
+  width: 280px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #111014;
+  text-align: left;
+  color: white;
+  box-shadow: 0 15px 20px rgb(0 0 0 / 80%);
+  border-radius: 0 0 4px 4px;
+  transform: scale(0);
+  transform-origin: top right;
+  opacity: 0;
+  transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s;
+  overflow: hidden;
+  h3{
+        font-size: .875rem;
+        
+    font-weight: 600;
+margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #272626;
+  }
+  &.opened {
+    transform: scale(1);
+    opacity: 1;
+  }
 
-height: auto;
-}
-a,button{
-  display: block;
-  cursor: pointer;
-  margin: .3rem 0;
-  background: none;
-  border: none;
-  color: black;
-  font-weight: 6;
-}
+  a,
+  button {
+    
+    white-space: nowrap;
+    display: block;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    background: none;
+    margin: 0.3rem 0;
+    text-align: start;
+    color: white;
+        margin-bottom: .3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color .3s;
+    padding: .5rem 1rem;
+  }
+  button{
+        width: 100%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: .85rem;
+    padding: .5rem 1rem;
+    background-color: #ff2e2e;
+    border-radius: 4px;
+    transition: color .3s,background-color .3s;
+    display: flex;
+    align-items: center;
+    img{
+      margin-right: 10px;
+    }
+  }
 `;
