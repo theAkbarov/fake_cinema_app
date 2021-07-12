@@ -1,8 +1,10 @@
-import { MovieCard, Image, Text, Button } from './useStyles.js'
+import { MovieCard, Image, Text, Button, Remove } from './useStyles.js'
 import Play from '../../assets/icons/play-button-svgrepo-com.svg'
-const Movie = ({ title, img, id }) => {
+import DeleteIcon from '../../assets/icons/trash.svg'
+
+const Movie = ({ title, img, id, deleteBtn, deleteHandler}) => {
     return (
-        <>
+        <div style={{position:"relative",margin: ".8rem 0"}}>
         <MovieCard to={`/show/${id}`}>
             <Image >
                 <img src={img} alt={title} />
@@ -15,10 +17,15 @@ const Movie = ({ title, img, id }) => {
                 {title}
             </Text>
         </MovieCard>
+            {
+                    deleteBtn ? (<Remove onClick={() => deleteHandler(id)}>
+                        <img src={DeleteIcon} alt=""/>
+                    </Remove>) : (<></>)
+            }
                 <Button className="wishlist">
                     add to wishlist
                 </Button>
-        </>
+        </div>
     )
 }
 

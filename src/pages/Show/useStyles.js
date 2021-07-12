@@ -23,7 +23,7 @@ export const MovieInfo = styled.div`
   top: 0;
   bottom: 0;
   left: 0;
-  width: 200px;
+  /* width: 200px; */
   height: 200px;
   text-align: center;
   right: 0;

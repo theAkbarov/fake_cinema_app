@@ -1,3 +1,5 @@
+import AppStore from '../assets/icons/Apple.svg'
+import Google from '../assets/icons/Google.svg'
 export const AppbarDatas = [
   {
     id: 0,
@@ -63,3 +65,45 @@ export const ProfileData = [
     url: "/profile/settings",
   },
 ];
+
+export const filterHTMLsemanticDatas = [
+  {
+    label: "Genre",
+    id: "genre",
+    defaultValue: "Select Genre",
+    options: ["Action", "Melodrama", "Fantacy", "Triller"]
+  },
+  {
+    label: "Country",
+    id: "country",
+    defaultValue: "Select Country",
+    options: ["Uzbekistan", "Russia", "USA", "England"]
+  },
+  {
+    label: "Year",
+    defaultValue: "Select Year",
+    id: "year",
+    options: []
+  },
+  {
+    label: "Quality",
+    defaultValue: "Select Quality",
+    id: "country",
+    options: ["4K", "UHD", "HD", "SD"]
+  },
+]
+
+export const FooterExternalLinks = [
+  {
+    title: "https://Google Play",
+    url: "play.google.com",
+    id: 0,
+    icon: Google
+  },
+  {
+    title: "App Store",
+    id: 1,
+    url: "https://store.apple.com",
+    icon: AppStore
+  },
+]

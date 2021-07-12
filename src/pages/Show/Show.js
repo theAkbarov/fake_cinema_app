@@ -21,13 +21,14 @@ import {
   set_wishlist,
 } from "../../redux/actions/movie_actions";
 import { useDispatch, useSelector } from "react-redux";
-import { HeartIcon } from "../../assets/icons";
+import { HeartIcon, HeartIconSaved } from "../../assets/icons";
 import Play from "../../assets/icons/play-button-svgrepo-com.svg";
 import Slider from "react-slick";
 import { MoviesConfig, ShowsData } from "../../db";
 import Navbar from "../../components/Navbar/Navbar";
 const Show = ({ match }) => {
   const [active, setActive] = useState("about");
+  const [heart, setHeart] = useState(false);
   const dispatch = useDispatch();
   const movie = useSelector((state) => state.allPayloads.movie);
   // const wishlist = useSelector((state) => state.allPayloads.wishlist);
@@ -57,8 +58,8 @@ const Show = ({ match }) => {
     const products = [...wishlist, product];
     setWishlist(products);
     window.localStorage.setItem("wishlist", JSON.stringify(products));
-    console.log(wishlist);
     dispatch(set_wishlist(product))
+    setHeart(true)    
   };
   return (
     <ShowWrapper>
@@ -83,7 +84,7 @@ const Show = ({ match }) => {
                 onClick={() => wishlistHandler(movie.data)}
                 className="favourites"
               >
-                <HeartIcon />
+                {heart ?  <HeartIconSaved />: <HeartIcon /> }
               </Button>
             </MovieInfo>
           </Banner>
@@ -130,16 +131,18 @@ const Show = ({ match }) => {
             ) : (
               ""
             )}
-            <Text>Similar</Text>
+            {movies && <Text>Similar</Text> }
 
             <Slider className="slide" {...MoviesConfig}>
-              {movies.data &&
+              {movies &&
                 movies.data
                   .slice(10, 20)
                   .map((el) => (
-                    <Movie title={el.name} img={el.image.original} id={el.id} />
+                    <Movie title={el.name} img={el.image.original} id={el.id} key={el.id} />
                   ))}
             </Slider>
+                  {!movies && <h1 style={{whiteSpace: "nowrap"}}>Similar movies is not available now. Sorry :(</h1>
+                   }
           </Container>
         </>
       ) : (

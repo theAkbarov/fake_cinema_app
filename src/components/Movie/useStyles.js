@@ -73,3 +73,26 @@ export const Button = styled.button`
     height: 50px;
   }
 `;
+
+export const Remove = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #ff2e2e;
+  border: none;
+  position: absolute;
+  top: 10px;
+  z-index: 8978645;
+  right: 10px;
+  transition: all ease 0.4s;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  &:hover{
+    transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 3.85) 0px 5px 15px;
+
+  }
+  img{
+    width: 100%;
+  }
+`

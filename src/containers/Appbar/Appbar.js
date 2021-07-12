@@ -46,7 +46,7 @@ const Appbar = () => {
             </Search>
             {currentUser ? <Profile onClick={() => setActive(!active)}>
               {currentUser && currentUser.email.split("")[0].toUpperCase()}
-              <Menu onBlur={() => setActive(!active)} className={active ? "opened" : " "}>
+              <Menu onBlur={() => setActive(false)} className={active ? "opened" : " "}>
                 <h3>{currentUser && currentUser.email}</h3>
                 <Link to="/profile">Account</Link>
                 <Link to="/profile/wishlist">Wishlist</Link>

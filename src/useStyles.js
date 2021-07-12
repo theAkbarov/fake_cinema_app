@@ -13,3 +13,11 @@ justify-content: space-between;
 align-items: baseline;
 flex-wrap: wrap;
 `;
+
+export const Heart = styled.svg`
+fill: whitesmoke;
+&.added{
+fill: #D7443E;
+
+}
+`

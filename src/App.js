@@ -10,6 +10,8 @@ import PrivateRoute from './services/routes/PrivateRoute'
 import { AuthProvider } from './services/context/AuthContext';
 import Wishlist from './pages/Wishlist'
 import Account from './pages/Account'
+import Movies from './pages/Movies';
+import Footer from './containers/Footer/Footer';
 
 function App() {
 
@@ -21,11 +23,13 @@ function App() {
           <Route path="/auth" component={Auth} />
           <PrivateRoute path="/wishlist" component={Wishlist} />
           <PrivateRoute path="/profile" component={Account} />
+          <PrivateRoute path="/movies" component={Movies} />
           <Route path="/show/:id" component={Show} />
           <Route path="/" exact component={Home} />
           <Route path="*" component={Error} />
 
         </Switch>
+        <Footer />
       </div>
 </AuthProvider>
   );
