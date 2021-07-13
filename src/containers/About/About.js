@@ -3,21 +3,21 @@ import { Heading } from '../../pages/Home/useStyles'
 import { Flex } from '../../useStyles'
 import { Link } from 'react-router-dom'
 import { request } from '../../services/api/request'
-import { MoviesConfig} from '../../db'
+import { MoviesConfig } from '../../db'
 import Slider from 'react-slick'
 import {
     AboutWrapper,
     Datas,
     CastGroup,
-    Actors,} from './useStyles'
-const About = ({movie}) => {
+    Actors,
+} from './useStyles'
+const About = ({ movie }) => {
     const [data, setData] = useState({})
     useEffect(() => {
         request.get(`/shows/${movie.data.id}/cast`)
             .then(res => setData(res.data))
             .catch(err => console.log(err))
-        }, [])
-        console.log(data);
+    }, [])
     return (
         <AboutWrapper>
             <img
@@ -51,11 +51,11 @@ const About = ({movie}) => {
                 <Actors>
                     <Slider {...MoviesConfig}>
                         {
-                            data.length < 0 && data.map(el=> (
+                            data.length < 0 && data.map(el => (
                                 <Link to={`/cast/${el.person.id}`}>
-                                 <img src={el.person.image.original} alt="" />
-                                 <p>{el.person.name}</p>
-                                 </Link>
+                                    <img src={el.person.image.original} alt="" />
+                                    <p>{el.person.name}</p>
+                                </Link>
                             ))
                         }
                     </Slider>

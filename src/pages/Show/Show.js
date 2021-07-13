@@ -33,12 +33,15 @@ const Show = ({ match }) => {
   const movie = useSelector((state) => state.allPayloads.movie);
   // const wishlist = useSelector((state) => state.allPayloads.wishlist);
   const [wishlist, setWishlist] = useState(
-    window.localStorage.length > 0
+    window.localStorage.getItem("wishlist") !== null
       ? JSON.parse(window.localStorage.getItem("wishlist"))
-      : null,
+      : [],
   );
+  console.log(wishlist);
+
   const seasons = useSelector((state) => state.allPayloads.seasons);
   const movies = useSelector((state) => state.allPayloads.movies);
+
   useEffect(() => {
     request
       .get(`/shows/${match.params.id}`)
@@ -58,8 +61,8 @@ const Show = ({ match }) => {
     const products = [...wishlist, product];
     setWishlist(products);
     window.localStorage.setItem("wishlist", JSON.stringify(products));
-    dispatch(set_wishlist(product))
-    setHeart(true)    
+    dispatch(set_wishlist(products))
+    setHeart(true)
   };
   return (
     <ShowWrapper>
@@ -84,7 +87,7 @@ const Show = ({ match }) => {
                 onClick={() => wishlistHandler(movie.data)}
                 className="favourites"
               >
-                {heart ?  <HeartIconSaved />: <HeartIcon /> }
+                {heart ? <HeartIconSaved /> : <HeartIcon />}
               </Button>
             </MovieInfo>
           </Banner>
@@ -131,7 +134,7 @@ const Show = ({ match }) => {
             ) : (
               ""
             )}
-            {movies && <Text>Similar</Text> }
+            {movies && <Text>Similar</Text>}
 
             <Slider className="slide" {...MoviesConfig}>
               {movies &&
@@ -141,8 +144,8 @@ const Show = ({ match }) => {
                     <Movie title={el.name} img={el.image.original} id={el.id} key={el.id} />
                   ))}
             </Slider>
-                  {!movies && <h1 style={{whiteSpace: "nowrap"}}>Similar movies is not available now. Sorry :(</h1>
-                   }
+            {!movies && <h1 style={{ whiteSpace: "nowrap" }}>Similar movies is not available now. Sorry :(</h1>
+            }
           </Container>
         </>
       ) : (

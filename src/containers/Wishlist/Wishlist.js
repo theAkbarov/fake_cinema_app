@@ -8,7 +8,7 @@ const Wishlist = () => {
   const [datas, setDatas] = useState(
     window.localStorage.length > 0
       ? JSON.parse(window.localStorage.getItem("wishlist"))
-      : null
+      : []
   );
   const deleteHandler= (id) => {
       const deletedMovie = datas.findIndex(el => el.id === id)
@@ -21,7 +21,7 @@ const Wishlist = () => {
     <WishList>
       {console.log(datas)}
       <Flex>
-        {datas.map((el) => (
+        {datas && datas.map((el) => (
           <Movie
             key={el.id}
             title={el.name}

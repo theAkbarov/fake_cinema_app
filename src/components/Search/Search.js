@@ -31,7 +31,7 @@ const Search = ({ setSearchbar,active}) => {
                 <Output>
                     {data && data.slice(0,3).map(el => (
                         <ListItem>
-                            <Link to={`/show/${el.show.id}`}>
+                            <Link onClick={() => setSearchbar(false)} to={`/show/${el.show.id}`}>
                                 <img src={el.show.image && el.show.image.original} alt={el.show.name}/>
                                 <Datas>
                                     <h3>{el.show.name}</h3>
