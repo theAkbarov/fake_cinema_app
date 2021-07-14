@@ -8,9 +8,9 @@ const Card = ({ title, id, image, year, genre }) => {
                 style={{
                     background: `url(${image})`,
                     padding: "7rem 2rem",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "70%",
-                    backgroundPosition: "center",
+                    // backgroundRepeat: "no-repeat",
+                    // backgroundSize: "70%",
+                    // backgroundPosition: "center",
                 }}
             >
                 <h1 style={{color: "white",mixBlendMode: "difference"}}>{title}</h1>

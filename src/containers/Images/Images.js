@@ -9,7 +9,7 @@ const Images = () => {
             <Slider {...ImagesConfig}>
                 {state && state.data.map(el => (
                     <div>
-                        <a target="_blank" href={el.resolutions.original.url}>
+                        <a rel="noreferrer" target="_blank" href={el.resolutions.original.url}>
                             <img width="185" height="104" style={{ objectFit: "cover",objectPosition:"center" }} src={el.resolutions.original.url} alt="" />
 
                         </a>

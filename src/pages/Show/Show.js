@@ -33,11 +33,10 @@ const Show = ({ match }) => {
   const movie = useSelector((state) => state.allPayloads.movie);
   // const wishlist = useSelector((state) => state.allPayloads.wishlist);
   const [wishlist, setWishlist] = useState(
-    window.localStorage.getItem("wishlist") !== null
+    window.localStorage.getItem("wishlist") === null
       ? JSON.parse(window.localStorage.getItem("wishlist"))
       : [],
   );
-  console.log(wishlist);
 
   const seasons = useSelector((state) => state.allPayloads.seasons);
   const movies = useSelector((state) => state.allPayloads.movies);

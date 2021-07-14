@@ -30,5 +30,6 @@ export const FormControl = styled.input`
     transition: all 100ms ease 0s;
     box-sizing: border-box;
     font-size: 0.9375rem;
+        padding: 0 10px;
     outline: 0px !important;
 `

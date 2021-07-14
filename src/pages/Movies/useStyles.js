@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MoviesWrapper = styled.div`
   padding-top: 3.7rem;
 `;
-export const Filter = styled.div`
+export const FilterWrapper = styled.div`
   padding-top: 32px 0;
   display: flex;
   align-items: center;
@@ -42,16 +42,4 @@ export const FormControl =styled.input`
     font-size: 0.9375rem;
     outline: 0px !important;
     padding-left:10px;
-`
-export const Button= styled.button`
-    color: #16151a;
-    background-color: #ffff4d;
-    border: 1px solid #ffff4d;
-    margin-left: 1rem;
-    display: inline-block;
-    font-size: .875rem;
-    padding: .5rem 1.5rem;
-    font-weight: 600;
-    border-radius: 4px;
-    transition: background-color .3s,color .3s,opacity .3s,border .3s;
 `

@@ -8,8 +8,8 @@ export const AppbarDatas = [
   },
   {
     id: 1,
-    title: "TV series",
-    path: "/tv-series",
+    title: "TV shows",
+    path: "/tv-show",
   },
   {
     id: 2,

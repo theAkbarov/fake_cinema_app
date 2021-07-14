@@ -15,7 +15,7 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     request
-      .get("/shows/1/episodes")
+      .get("/shows")
       .then((res) => dispatch(set_movies(res)))
       .catch((err) => console.log(err));
   }, []);

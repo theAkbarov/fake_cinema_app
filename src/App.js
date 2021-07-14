@@ -11,6 +11,7 @@ import { AuthProvider } from './services/context/AuthContext';
 import Wishlist from './pages/Wishlist'
 import Account from './pages/Account'
 import Movies from './pages/Movies';
+import TvShows from './pages/TvShows';
 import Footer from './containers/Footer/Footer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <PrivateRoute path="/profile" component={Account} />
           <PrivateRoute path="/movies" component={Movies} />
           <Route path="/show/:id" component={Show} />
+          <Route path="/tv-show" component={TvShows} />
           <Route path="/" exact component={Home} />
           <Route path="*" component={Error} />
 
