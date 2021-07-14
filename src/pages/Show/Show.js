@@ -27,6 +27,7 @@ import Play from "../../assets/icons/play-button-svgrepo-com.svg";
 import Slider from "react-slick";
 import { MoviesConfig, ShowsData } from "../../db";
 import Navbar from "../../components/Navbar/Navbar";
+import Helmet from 'react-helmet'
 const Show = ({ match }) => {
   const [active, setActive] = useState("about");
   const [heart, setHeart] = useState(false);
@@ -68,6 +69,9 @@ const Show = ({ match }) => {
   };
   return (
     <ShowWrapper>
+      <Helmet>
+        <title>Watch "{movie && movie.data.name}"</title>
+      </Helmet>
       {movie ? (
         <>
           <Banner

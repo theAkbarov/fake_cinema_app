@@ -1,6 +1,7 @@
 import { Wrapper, LoadMore } from './useStyles'
 import Filter from '../../containers/Filter'
 import { request } from '../../services/api/request'
+import Helmet from 'react-helmet'
 import { useState, useEffect } from 'react'
 import Text from '../../components/Text/Text'
 import { Container, Flex } from '../../useStyles'
@@ -43,6 +44,11 @@ const TvShows = () => {
             <Filter handleSubmit={handleSubmit} handleFillForm={handleFillForm}/>
         <Wrapper>
             <Container>
+                <Helmet>
+                    <title>
+                        Tv shows
+                    </title>
+                </Helmet>
                 <Text type="h1" text="Latest movies" />
                 <Flex>
                     {console.log(shows)}

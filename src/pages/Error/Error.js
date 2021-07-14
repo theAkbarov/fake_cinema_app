@@ -1,10 +1,13 @@
 import classes from './Error.module.scss'
 import Bg from '../../assets/images/error.png'
-
+import Helmet from 'react-helmet'
 const Error = () => {
     return (
         <>
       <div className={classes.ErrorPage}>
+          <Helmet>
+            <title>Opps! 404 Error</title>
+          </Helmet>
         <img src={Bg} alt="" />
         <div className={classes.Content}>
           <h1 className={classes.title}>Awww...Don’t Cry.</h1>

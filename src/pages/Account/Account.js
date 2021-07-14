@@ -19,6 +19,7 @@ const Account = () => {
   );
   return (
     <UserProfile>
+
       <Container>
         <Flex>
           <Heading>Profile</Heading>

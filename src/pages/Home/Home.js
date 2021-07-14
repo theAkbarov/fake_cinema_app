@@ -9,6 +9,7 @@ import Card from "../../components/Card";
 import { Container } from "../../useStyles";
 import Movie from "../../components/Movie";
 import { Link } from "react-router-dom";
+import Helmet from "react-helmet" 
 
 const Home = () => {
   const products = useSelector((state) => state.allPayloads.movies);
@@ -34,6 +35,9 @@ const Home = () => {
             ))}
       </Slider>
       <Container style={{ marginBottom: "3rem" }}>
+        <Helmet>
+          <title>Cinemagic | cinema portal</title>
+        </Helmet>
         <Link to="/movies">
           <Heading>Films</Heading>
         </Link>

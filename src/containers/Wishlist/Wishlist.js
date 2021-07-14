@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import { useSelector } from "react-redux";
 import Movie from "../../components/Movie";
-import { Flex } from "../../useStyles";
+import NoResult from "../NoResult/NoResult";
 import { WishList } from "./useStyles";
 
 const Wishlist = () => {
@@ -16,19 +16,19 @@ const Wishlist = () => {
     window.localStorage.setItem("wishlist", JSON.stringify(deletedMovie))
     }
   return (
-    <WishList>
-      <Flex>
-        {datas && datas.map((el) => (
+    <WishList style={{display:"flex",flexWrap:"wrap"}}>
+        {datas.length > 0 ? (
+        datas.map((el) => (
           <Movie
             key={el.id}
             title={el.name}
             img={el.image.original}
             id={el.id}
             deleteBtn={true}
-                deleteHandler={deleteHandler}
+            deleteHandler={deleteHandler}
           />
-        ))}
-      </Flex>
+        ))
+      ) : (<NoResult />) }
     </WishList>
   );
 };

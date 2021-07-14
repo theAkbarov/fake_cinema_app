@@ -1,5 +1,7 @@
 import { AccInfo, Rounded, UserInfo} from './useStyles'
 import { useAuth } from '../../services/context/AuthContext'
+import Helmet from 'react-helmet'
+
 const AccountInfo = () => {
     const { currentUser } = useAuth()
     console.log(currentUser);
@@ -20,6 +22,9 @@ const AccountInfo = () => {
     }
     return (
         <AccInfo>
+            <Helmet>
+                <title>User account | { " " + nameHandler(currentUser.email.split(""))}</title>
+            </Helmet>
             <Rounded>
                 {currentUser && currentUser.email.split("")[0].toUpperCase()}
             </Rounded>

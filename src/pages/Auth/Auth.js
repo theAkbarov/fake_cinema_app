@@ -11,6 +11,7 @@ import {
   AuthButton,
   Error
 } from "./useStyles";
+import Helmet from "react-helmet"
 import BackgroundImage from "../../assets/images/back.png";
 const Auth = () => {
   const history = useHistory()
@@ -61,6 +62,9 @@ const Auth = () => {
     <Authorize
       style={{ background: `url(${BackgroundImage})`, backgroundSize: "cover" }}
     >
+      <Helmet>
+        <title>Authorize</title>
+      </Helmet>
       <Container>
         <div>
           <Button
