@@ -13,6 +13,7 @@ import Account from './pages/Account'
 import Movies from './pages/Movies';
 import TvShows from './pages/TvShows';
 import Footer from './containers/Footer/Footer';
+import Collections from './pages/Collections';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <PrivateRoute path="/movies" component={Movies} />
           <Route path="/show/:id" component={Show} />
           <Route path="/tv-show" component={TvShows} />
+          <Route path="/collection" component={Collections} />
           <Route path="/" exact component={Home} />
           <Route path="*" component={Error} />
 

@@ -20,6 +20,7 @@ import {
   set_images,
   set_wishlist,
 } from "../../redux/actions/movie_actions";
+
 import { useDispatch, useSelector } from "react-redux";
 import { HeartIcon, HeartIconSaved } from "../../assets/icons";
 import Play from "../../assets/icons/play-button-svgrepo-com.svg";
@@ -33,7 +34,7 @@ const Show = ({ match }) => {
   const movie = useSelector((state) => state.allPayloads.movie);
   // const wishlist = useSelector((state) => state.allPayloads.wishlist);
   const [wishlist, setWishlist] = useState(
-    window.localStorage.getItem("wishlist") === null
+    window.localStorage.getItem("wishlist") !== null
       ? JSON.parse(window.localStorage.getItem("wishlist"))
       : [],
   );
@@ -60,7 +61,9 @@ const Show = ({ match }) => {
     const products = [...wishlist, product];
     setWishlist(products);
     window.localStorage.setItem("wishlist", JSON.stringify(products));
-    dispatch(set_wishlist(products))
+    console.log(products);
+    console.log(product);
+    // dispatch(set_wishlist(products))
     setHeart(true)
   };
   return (

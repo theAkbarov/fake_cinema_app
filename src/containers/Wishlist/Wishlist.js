@@ -13,7 +13,7 @@ const Wishlist = () => {
   const deleteHandler= (id) => {
       const deletedMovie = datas.filter(el => el.id !== id)
     setDatas(deletedMovie)
-    //   window.localStorage.setItem("wishlist", JSON.stringify(datas))
+    window.localStorage.setItem("wishlist", JSON.stringify(deletedMovie))
     }
   return (
     <WishList>
