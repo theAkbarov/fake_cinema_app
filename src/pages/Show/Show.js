@@ -70,7 +70,7 @@ const Show = ({ match }) => {
   return (
     <ShowWrapper>
       <Helmet>
-        <title>Watch "{movie && movie.data.name}"</title>
+        <title>Watch "{movie ? movie.data.name : "the latest movies"}"</title>
       </Helmet>
       {movie ? (
         <>

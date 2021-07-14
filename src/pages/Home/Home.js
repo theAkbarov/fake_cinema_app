@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { useSelector, useDispatch } from "react-redux";
 import { Hero, Heading } from "./useStyles";
@@ -12,6 +12,11 @@ import { Link } from "react-router-dom";
 import Helmet from "react-helmet" 
 
 const Home = () => {
+  const [datas , setDatas ] = useState(
+    window.localStorage.getItem("wishlist") > 0 ?
+    JSON.parse(window.localStorage.getItem("wishlist")) 
+    : []
+  )
   const products = useSelector((state) => state.allPayloads.movies);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,6 +25,7 @@ const Home = () => {
       .then((res) => dispatch(set_movies(res)))
       .catch((err) => console.log(err));
   }, []);
+  window.localStorage.setItem('wishlist', JSON.stringify(datas))
   return (
     <Hero>
       <Slider
