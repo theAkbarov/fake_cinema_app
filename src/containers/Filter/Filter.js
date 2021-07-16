@@ -3,7 +3,7 @@ import { Flex, Container } from '../../useStyles'
 import FilterInput from '../../components/FilterInput'
 import { filterHTMLsemanticDatas } from "../../db"
 
-const Filter = ({ handleSubmit, handleFillForm }) => {
+const Filter = ({ handleSubmit, handleFillForm, handleReset }) => {
     return (
         <FilterWrapper>
             <Container>
@@ -13,7 +13,7 @@ const Filter = ({ handleSubmit, handleFillForm }) => {
                 <FilterInput onEdit={handleFillForm} data={filterHTMLsemanticDatas[1]} />
                 <FilterInput onEdit={handleFillForm} data={filterHTMLsemanticDatas[2]} />
                 <FilterInput onEdit={handleFillForm} data={filterHTMLsemanticDatas[3]} />
-                <Button>Reset</Button>
+                <Button onClick={handleReset}>Reset</Button>
                 <Button>Search</Button>
             </Flex>
         </form>

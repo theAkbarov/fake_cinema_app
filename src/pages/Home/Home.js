@@ -13,7 +13,7 @@ import Helmet from "react-helmet"
 
 const Home = () => {
   const [datas , setDatas ] = useState(
-    window.localStorage.getItem("wishlist") > 0 ?
+    window.localStorage.getItem("wishlist") !== [] ?
     JSON.parse(window.localStorage.getItem("wishlist")) 
     : []
   )

@@ -39,13 +39,20 @@ const Movies = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  const handleReset = () => {
+    setFormData({
+      genre: "",
+      country: "",
+      year: "",
+      quality: "",
+    })
+  }
   return (
     <MoviesWrapper>
       <Helmet>
         <title>Latest Movies</title>
       </Helmet>
-      <Filter handleSubmit={handleSubmit} handleFillForm={handleFillForm} />
+      <Filter handleReset={handleReset} handleSubmit={handleSubmit} handleFillForm={handleFillForm} />
       <Container>
         <Text type="h1" text="Latest movies" />
         <Flex>

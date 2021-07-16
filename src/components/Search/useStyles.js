@@ -49,6 +49,7 @@ export const Output = styled.ul`
   padding: 0;
   display: block;
   border-radius: 6px;
+  z-index: 64516854;
   overflow: hidden;
   width: 96%;
 

@@ -29,7 +29,8 @@ const Search = ({ setSearchbar,active}) => {
                     <Button onClick={() => setSearchbar(false)}>X</Button>
                 </div>
                 <Output>
-                    {data && data.slice(0,3).map(el => (
+                    {data  && data.slice(0,3).map(el => (
+                            el.show.image &&
                         <ListItem>
                             <Link onClick={() => setSearchbar(false)} to={`/show/${el.show.id}`}>
                                 <img src={el.show.image && el.show.image.original} alt={el.show.name}/>
