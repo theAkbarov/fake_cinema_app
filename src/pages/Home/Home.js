@@ -9,14 +9,16 @@ import Card from "../../components/Card";
 import { Container } from "../../useStyles";
 import Movie from "../../components/Movie";
 import { Link } from "react-router-dom";
-import Helmet from "react-helmet" 
+import Helmet from "react-helmet";
 
 const Home = () => {
-  const [datas , setDatas ] = useState(
-    window.localStorage.getItem("wishlist") !== [] ?
-    JSON.parse(window.localStorage.getItem("wishlist")) 
-    : []
-  )
+  console.log();
+  const [datas, setDatas] = useState(
+    window.localStorage.getItem("wishlist") &&
+      window.localStorage.getItem("wishlist").length !== 0
+      ? JSON.parse(window.localStorage.getItem("wishlist"))
+      : []
+  );
   const products = useSelector((state) => state.allPayloads.movies);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,7 +27,7 @@ const Home = () => {
       .then((res) => dispatch(set_movies(res)))
       .catch((err) => console.log(err));
   }, []);
-  window.localStorage.setItem('wishlist', JSON.stringify(datas))
+  window.localStorage.setItem("wishlist", JSON.stringify(datas));
   return (
     <Hero>
       <Slider
@@ -37,7 +39,12 @@ const Home = () => {
           products.data
             .slice(10, 16)
             .map((el) => (
-              <Card image={el.image.original} title={el.name} id={el.id} key={el.id} />
+              <Card
+                image={el.image.original}
+                title={el.name}
+                id={el.id}
+                key={el.id}
+              />
             ))}
       </Slider>
       <Container style={{ marginBottom: "3rem" }}>
@@ -52,7 +59,12 @@ const Home = () => {
             products.data
               .slice(0, 16)
               .map((el) => (
-                <Movie title={el.name} img={el.image.original} key={el.id} id={el.id} />
+                <Movie
+                  title={el.name}
+                  img={el.image.original}
+                  key={el.id}
+                  id={el.id}
+                />
               ))}
         </Slider>
       </Container>
@@ -65,7 +77,12 @@ const Home = () => {
             products.data
               .slice(16, 32)
               .map((el) => (
-                <Movie title={el.name} img={el.image.original} key={el.id}  id={el.id} />
+                <Movie
+                  title={el.name}
+                  img={el.image.original}
+                  key={el.id}
+                  id={el.id}
+                />
               ))}
         </Slider>
       </Container>

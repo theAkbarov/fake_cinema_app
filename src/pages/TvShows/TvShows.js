@@ -41,8 +41,8 @@ const TvShows = () => {
     },[])
     return (
         <MoviesWrapper>
-            <Filter handleSubmit={handleSubmit} handleFillForm={handleFillForm}/>
         <Wrapper>
+            {/* <Filter handleSubmit={handleSubmit} handleFillForm={handleFillForm}/> */}
             <Container>
                 <Helmet>
                     <title>

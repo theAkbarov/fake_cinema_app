@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MoviesWrapper = styled.div`
-  padding-top: 3.7rem;
+  /* padding-top: 3.7rem; */
 `;
 export const FilterWrapper = styled.div`
   padding-top: 32px 0;

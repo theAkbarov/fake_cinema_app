@@ -1,5 +1,5 @@
-import AppStore from '../assets/icons/Apple.svg'
-import Google from '../assets/icons/Google.svg'
+import AppStore from "../assets/icons/Apple.svg";
+import Google from "../assets/icons/Google.svg";
 export const AppbarDatas = [
   {
     id: 0,
@@ -71,39 +71,81 @@ export const filterHTMLsemanticDatas = [
     label: "Genre",
     id: "genre",
     defaultValue: "Select Genre",
-    options: ["Action", "Melodrama", "Fantacy", "Triller"]
+    options: ["Action", "Melodrama", "Fantacy", "Triller"],
   },
   {
     label: "Country",
     id: "country",
     defaultValue: "Select Country",
-    options: ["Uzbekistan", "Russia", "USA", "England"]
+    options: [
+      {
+        name: "USA",
+        code: "US",
+      },
+      {
+        name: "India",
+        code: "IN",
+      },
+      {
+        name: "Russia",
+        code: "RU",
+      },
+      {
+        name: "Uzbekistan",
+        code: "UZ",
+      },
+      {
+        name: "Great Britian",
+        code: "GB",
+      },
+      {
+        name: "Turkey",
+        code: "TR",
+      },
+
+      {
+        name: "Arab Emirates",
+        code: "AE",
+      },
+      {
+        name: "Virgin Islands",
+        code: "VG",
+      },
+      {
+        name: "Sweden",
+        code: "SE",
+      },
+      {
+        name: "Italy",
+        code: "IT",
+      },
+    ],
   },
   {
     label: "Year",
     defaultValue: "Select Year",
     id: "year",
-    options: []
+    options: [],
   },
   {
     label: "Quality",
     defaultValue: "Select Quality",
-    id: "country",
-    options: ["4K", "UHD", "HD", "SD"]
+    id: "quality",
+    options: ["4K", "UHD", "HD", "SD"],
   },
-]
+];
 
 export const FooterExternalLinks = [
   {
     title: "https://Google Play",
     url: "play.google.com",
     id: 0,
-    icon: Google
+    icon: Google,
   },
   {
     title: "App Store",
     id: 1,
     url: "https://store.apple.com",
-    icon: AppStore
+    icon: AppStore,
   },
-]
+];

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import NoResult from '../../containers/NoResult/NoResult'
 import { MoviesWrapper } from "./useStyles";
 import Text from "../../components/Text/Text";
 import { Container, Flex } from "../../useStyles";
@@ -17,7 +18,10 @@ const Movies = () => {
       .then((res) => dispatch(set_movies(res)))
       .catch((err) => console.log(err));
   }, []);
-  const [filteredData, setFilteredDatas] = useState([]);
+  const [filteredData, setFilteredDatas] = useState({
+    isFetched: false,
+    data: []
+  });
   const [formData, setFormData] = useState({
     genre: "",
     country: "",
@@ -28,10 +32,13 @@ const Movies = () => {
     e.preventDefault();
     console.log(formData);
     request
-      .get(`updates/shows?since=${formData.year}`)
-      .then((res) => setFilteredDatas(res))
-      .then((res) => console.log(filteredData))
+      .get(`/schedule?country=${formData.country}&date=${formData.year}-12-01`)
+      .then((res) => setFilteredDatas({
+        isFetched: true,
+        data: res
+      }))
       .catch((err) => console.log(err));
+      console.log(filteredData.data.data)
   };
   const handleFillForm = (e) => {
     setFormData({
@@ -53,22 +60,38 @@ const Movies = () => {
         <title>Latest Movies</title>
       </Helmet>
       <Filter handleReset={handleReset} handleSubmit={handleSubmit} handleFillForm={handleFillForm} />
-      <Container>
-        <Text type="h1" text="Latest movies" />
-        <Flex>
-          {movies &&
-            movies.data
-              .slice(0, 36)
-              .map((el) => (
-                <Movie
-                  style={{ marginBottom: "1.8rem" }}
-                  title={el.name}
-                  img={el.image.original}
-                  key={el.id}
-                  id={el.id}
-                />
-              ))}
-        </Flex>
+      <Container style={{paddingTop: "3.7rem"}}>
+        <Text type="h1" text={filteredData.isFetched ? "Search results" : "Latest movies"} />
+          {
+          filteredData.isFetched ? (
+            <Flex>
+              {
+                filteredData.data.length !== 0 ? (
+                  filteredData.data.data.map(el => (
+                    <Movie title={el.name} key={el.id} img={el.show.image.original} />
+                  ))
+                ) : (
+                    <NoResult />
+                )
+              }
+            </Flex>
+          ) : (
+            <Flex>
+              {movies &&
+                movies.data
+                  .slice(0, 36)
+                  .map((el) => (
+                    <Movie
+                      style={{ marginBottom: "1.8rem" }}
+                      title={el.name}
+                      img={el.image.original}
+                      key={el.id}
+                      id={el.id}
+                    />
+                  ))}
+            </Flex>
+          )
+          }
       </Container>
     </MoviesWrapper>
   );

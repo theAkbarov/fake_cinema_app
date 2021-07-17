@@ -20,7 +20,9 @@ const FilterInput = ({ data,onEdit }) => {
                 {data.label === "Year"
                     ? years.length > 0 &&
                     years.reverse().map((el) => <option key={el} value={el} />)
-                    : data.options.map((el) => <option key={el} value={el} />)}
+                    : data.id === "country" ? data.options.map((el) => <option key={el.code} value={el.code} >{el.name}</option>)
+                        : data.options.map((el) => <option key={el} value={el} />)
+                    }
             </datalist>
         </InputHolder>
     );
