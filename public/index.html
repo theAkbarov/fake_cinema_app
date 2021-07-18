@@ -91,6 +91,28 @@
     .slide .slick-arrow::before{
       color: yellow !important;
     }
+    .movie-card-image{
+      transition: all ease 0.4s !important;
+    }
+    .movie-card-image::before{
+      position: absolute;
+      content: "";
+      width: 100%;
+      transition: all ease 0.4s !important;
+      height: 100%;
+      background:rgba(0, 0, 0, 0.6);
+      top: 0;
+      z-index: -1;
+      opacity: 0;
+      backdrop-filter: blur(5px);
+    }
+    .movie-card:hover .movie-card-image::before {
+      z-index: 1;
+      transition: all ease 0.45s !important;
+      opacity: 1;
+
+
+    }
   </style>
   <!--
       This HTML file is a template.

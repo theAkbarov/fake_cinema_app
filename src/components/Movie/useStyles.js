@@ -51,6 +51,7 @@ export const Button = styled.button`
   right: 0;
   margin: auto;
   z-index: 966;
+  height: 50px;
   opacity: 0;
   cursor: pointer;
   transition: all ease 0.45s;

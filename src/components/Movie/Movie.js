@@ -6,9 +6,9 @@ import PreloadImage from "react-preload-image";
 const Movie = ({ title, img, id, deleteBtn, deleteHandler }) => {
   return (
     <div style={{ position: "relative", margin: ".8rem 0" }}>
-      <MovieCard to={`/show/${id}`}>
+      <MovieCard to={`/show/${id}`} className="movie-card" >
         <Image>
-          <PreloadImage className="someClass" src={img} lazy />
+          <PreloadImage className="movie-card-image"  src={img} lazy />
           <Button>
             <img src={Play} alt="" />
           </Button>

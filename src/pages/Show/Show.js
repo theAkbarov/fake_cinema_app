@@ -18,7 +18,6 @@ import {
   set_movie,
   set_seasons,
   set_images,
-  set_wishlist,
 } from "../../redux/actions/movie_actions";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -77,6 +76,7 @@ const Show = ({ match }) => {
           <Banner
             style={{
               minHeight: "60vh",
+              Height: "60vh",
               background: `url(${movie && movie.data.image.original})`,
             }}
           >
