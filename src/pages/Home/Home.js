@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 
 const Home = () => {
-  console.log();
   const [datas, setDatas] = useState(
     window.localStorage.getItem("wishlist") &&
       window.localStorage.getItem("wishlist").length !== 0

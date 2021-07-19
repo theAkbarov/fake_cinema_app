@@ -17,6 +17,17 @@ export const Banner = styled.div`
     left: 0;
     right: 0;
   }
+  .share-button{
+        position: absolute;
+    right: 30px;
+    top: 30px;
+    background: #ffff4d;
+    cursor:pointer;
+    border: none;
+    padding: .6rem;
+    border-radius: 5px;
+  
+  }
 `;
 export const MovieInfo = styled.div`
   position: absolute;

@@ -30,7 +30,6 @@ const Movies = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     request
       .get(`/schedule?country=${formData.country}&date=${formData.year}-12-01`)
       .then((res) => setFilteredDatas({

@@ -17,7 +17,6 @@ const Account = () => {
   const history = useHistory();
   const initialState = history.location.pathname.split("");
   initialState.shift();
-  console.log()
   const [active, setActive] = useState(initialState.join("").includes('settings') ? "settings" :
     initialState.join("").includes('wishlist') ? "wishlist" : initialState.join("").includes('profile') ? "account" : ""
   );

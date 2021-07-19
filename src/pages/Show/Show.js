@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { request } from "../../services/api/request";
 import About from "../../containers/About";
 import Movie from "../../components/Movie";
+import { GrShareOption } from 'react-icons/gr'
+import Share from '../../components/Share'
 import Images from "../../containers/Images";
 import Comments from "../../containers/Comments";
 import {
@@ -30,6 +32,7 @@ import Helmet from 'react-helmet'
 const Show = ({ match }) => {
   const [active, setActive] = useState("about");
   const [heart, setHeart] = useState(false);
+  const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const movie = useSelector((state) => state.allPayloads.movie);
   // const wishlist = useSelector((state) => state.allPayloads.wishlist);
@@ -61,9 +64,6 @@ const Show = ({ match }) => {
     const products = [...wishlist, product];
     setWishlist(products);
     window.localStorage.setItem("wishlist", JSON.stringify(products));
-    console.log(products);
-    console.log(product);
-    // dispatch(set_wishlist(products))
     setHeart(true)
   };
   return (
@@ -96,6 +96,9 @@ const Show = ({ match }) => {
                 {heart ? <HeartIconSaved /> : <HeartIcon />}
               </Button>
             </MovieInfo>
+            <button onClick={() => setModal(!modal)} className="share-button">
+              <GrShareOption color="yellow"/>
+            </button>
           </Banner>
           <Container>
             <Seasons>
@@ -157,6 +160,7 @@ const Show = ({ match }) => {
       ) : (
         <></>
       )}
+      <Share name={movie && movie.data.name} active={modal} setModal={setModal}/>
     </ShowWrapper>
   );
 };

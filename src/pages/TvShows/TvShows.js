@@ -50,7 +50,6 @@ const TvShows = () => {
                 </Helmet>
                 <Text type="h1" text="Latest movies" />
                 <Flex>
-                    {console.log(shows)}
                     {shows.data ? (
                             shows.data
                                 .slice(0, shownMovies)
